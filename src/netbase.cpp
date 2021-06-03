@@ -132,9 +132,9 @@ bool static LookupIntern(const char* pszName, std::vector<CNetAddr>& vIP, unsign
     aiHint.ai_protocol = IPPROTO_TCP;
     aiHint.ai_family = AF_UNSPEC;
 #ifdef WIN32
-    aiHint.ai_flags = fAllowLookup ? 0 : AI_NUMERHDLCOST;
+    aiHint.ai_flags = fAllowLookup ? 0 : AI_NUMERICHOST;
 #else
-    aiHint.ai_flags = fAllowLookup ? AI_ADDRCONFIG : AI_NUMERHDLCOST;
+    aiHint.ai_flags = fAllowLookup ? AI_ADDRCONFIG : AI_NUMERICHOST;
 #endif
 
     struct addrinfo* aiRes = NULL;
@@ -882,7 +882,7 @@ std::string CNetAddr::ToStringIP() const
     socklen_t socklen = sizeof(sockaddr);
     if (serv.GetSockAddr((struct sockaddr*)&sockaddr, &socklen)) {
         char name[1025] = "";
-        if (!getnameinfo((const struct sockaddr*)&sockaddr, socklen, name, sizeof(name), NULL, 0, NI_NUMERHDLCOST))
+        if (!getnameinfo((const struct sockaddr*)&sockaddr, socklen, name, sizeof(name), NULL, 0, NI_NUMERICHOST))
             return std::string(name);
     }
     if (IsIPv4())
