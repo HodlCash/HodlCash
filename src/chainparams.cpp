@@ -138,7 +138,7 @@ public:
         //ipv4
 
         
-       // vSeeds.push_back(CDNSSeedData("DNSseeder2", "164.132.182.17"));
+        vSeeds.push_back(CDNSSeedData("68.183.103.159", "68.183.103.159"));
         
         
 
