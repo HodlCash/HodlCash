@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=HodlCash
+Comment=HodlCash P2P Cryptocurrency
+Exec=hodlcash-qt %u
+Terminal=false
+Type=Application
+Icon=hodlcash128
+MimeType=x-scheme-handler/hodlcash;
+Categories=Office;Finance;
+Name[en_CA]=hodlcash-qt.desktop

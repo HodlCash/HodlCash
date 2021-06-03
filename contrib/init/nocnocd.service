@@ -1,0 +1,26 @@
+[Unit]
+Description=HodlCash's distributed currency daemon
+After=network.target
+
+[Service]
+User=hodlcash
+Group=hodlcash
+
+Type=forking
+PIDFile=/var/lib/hodlcashd/HodlCashd.pid
+
+ExecStart=/usr/bin/hodlcashd -daemon -pid=/var/lib/hodlcashd/HodlCashd.pid \
+          -conf=/etc/hodlcash/HodlCash.conf -datadir=/var/lib/hodlcashd
+
+ExecStop=-/usr/bin/hodlcash-cli -conf=/etc/hodlcash/HodlCash.conf \
+         -datadir=/var/lib/hodlcashd stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target
