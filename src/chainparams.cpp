@@ -140,7 +140,7 @@ public:
         
         vSeeds.push_back(CDNSSeedData("68.183.103.159", "68.183.103.159"));
         vSeeds.push_back(CDNSSeedData("134.209.217.49", "134.209.217.49"));
-        
+        vSeeds.push_back(CDNSSeedData("74.106.233.83", "74.106.233.83"));
 
         //ipv6
         
